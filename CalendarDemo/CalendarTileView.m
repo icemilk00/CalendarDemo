@@ -8,6 +8,7 @@
 
 #import "CalendarTileView.h"
 
+
 @implementation CalendarTileView
 
 - (void)setSelected:(BOOL)selected
@@ -24,6 +25,11 @@
     }
     
     _selected = selected;
+}
+
+-(void)configTileViewWithModel:(CalendarModel *)model
+{
+    self.showDayLabel.text = [NSString stringWithFormat:@"%d",(int)model.day];
 }
 
 @end

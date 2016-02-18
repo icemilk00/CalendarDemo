@@ -1,5 +1,5 @@
 //
-//  CalendarModule.h
+//  CalendarModel.h
 //  CalendarDemo
 //
 //  Created by hp on 16/2/18.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CalendarModule : NSObject
+@interface CalendarModel : NSObject
 
 @property (nonatomic, assign) NSUInteger day;
 @property (nonatomic, assign) NSUInteger month;
 @property (nonatomic, assign) NSUInteger year;
 
-+ (CalendarModule *)calendarModuleWithYear:(NSUInteger)year month:(NSUInteger)month day:(NSUInteger)day;
++ (CalendarModel *)calendarModuleWithYear:(NSUInteger)year month:(NSUInteger)month day:(NSUInteger)day;
 
-- (BOOL)isEqualTo:(CalendarModule *)day;
+- (BOOL)isEqualTo:(CalendarModel *)day;
 
 - (NSDate *)date;
 

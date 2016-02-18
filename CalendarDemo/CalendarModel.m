@@ -1,26 +1,26 @@
 //
-//  CalendarModule.m
+//  CalendarModel.m
 //  CalendarDemo
 //
 //  Created by hp on 16/2/18.
 //  Copyright © 2016年 hxp. All rights reserved.
 //
 
-#import "CalendarModule.h"
+#import "CalendarModel.h"
 
-@implementation CalendarModule
+@implementation CalendarModel
 
 
-+ (CalendarModule *)calendarModuleWithYear:(NSUInteger)year month:(NSUInteger)month day:(NSUInteger)day
++ (CalendarModel *)calendarModuleWithYear:(NSUInteger)year month:(NSUInteger)month day:(NSUInteger)day
 {
-    CalendarModule *calendarModule = [[CalendarModule alloc] init];
+    CalendarModel *calendarModule = [[CalendarModel alloc] init];
     calendarModule.year = year;
     calendarModule.month = month;
     calendarModule.day = day;
     return calendarModule;
 }
 
-- (BOOL)isEqualTo:(CalendarModule *)day
+- (BOOL)isEqualTo:(CalendarModel *)day
 {
     BOOL isEqual = (self.year == day.year) && (self.month == day.month) && (self.day == day.day);
     return isEqual;

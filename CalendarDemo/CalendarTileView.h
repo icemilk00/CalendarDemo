@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarModel.h"
 
 @interface CalendarTileView : UIView
 
@@ -14,4 +15,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *showDayLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *recordFlagImageView;
+
+-(void)configTileViewWithModel:(CalendarModel *)model;
 @end
