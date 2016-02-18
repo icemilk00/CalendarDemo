@@ -18,16 +18,15 @@
 @property (nonatomic, strong) NSMutableArray *dataSourceArray;
 @property (nonatomic, strong) NSMutableArray *tiles;
 
-@property (nonatomic, strong) NSDate *selectDate;
-
 @property (nonatomic, readwrite) NSInteger selectedRow;
 @property (nonatomic, readwrite) NSInteger selectedColumn;
 @property (nonatomic, strong) CalendarTileView *selectedTileView;
+@property (nonatomic, strong) CalendarModel *currentDayCalendarModel;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 @property (nonatomic, strong) UIImageView *calendarHeadView;
-
+@property (nonatomic, strong) UIView *calendarShowView;
 @end
 
 @implementation CalendarView
@@ -43,7 +42,11 @@
         self.autoResize = YES;
         self.backgroundColor = [UIColor redColor];
         
+        NSDateComponents *c = [self.selectDate YMDComponents];
+        self.currentDayCalendarModel = [CalendarModel calendarModuleWithYear:c.year month:c.month day:c.day];
+        
         [self addSubview:self.calendarHeadView];
+        [self addSubview:self.calendarShowView];
     }
     return self;
 }
@@ -66,12 +69,16 @@
     
     if (self.autoResize) {
         CGRect frame = self.frame;
-        frame.size.height = _rowHeight * self.rows;
+        frame.size.height = _rowHeight * self.rows + _calendarHeadView.frame.size.height;
         self.frame = frame;
+        
+        CGRect frame2 = self.calendarShowView.frame;
+        frame2.size.height = _rowHeight * self.rows;
+        _calendarShowView.frame = frame2;
     }
     
     for (int i = 0; i < self.rows; i ++) {
-        CGFloat y = i * _rowHeight + _calendarHeadView.frame.size.height;
+        CGFloat y = i * _rowHeight;
         for (int j = 0; j < 7; j ++) {
             CGFloat x = j * self.columnWidth;
             
@@ -79,11 +86,15 @@
             NSUInteger index = i*7 + j;
             
             if (self.dataSourceArray.count > index) {
-                [tileView configTileViewWithModel:self.dataSourceArray[i * 7 + j]];
+                CalendarModel *configModel = self.dataSourceArray[i * 7 + j];
+                [tileView configTileViewWithModel:configModel];
+                
+                tileView.isCurrentDay = [configModel isEqualTo:self.currentDayCalendarModel] ? YES : NO;
+
             }
             
             tileView.frame = CGRectMake(x, y, _columnWidth, _rowHeight);
-            [self addSubview:tileView];
+            [self.calendarShowView addSubview:tileView];
             [self.tiles addObject:tileView];
             
             if (tileView.selected) {
@@ -96,7 +107,7 @@
 
     if (self.tapGesture == nil) {
         self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tileViewDidTap:)];
-        [self addGestureRecognizer:self.tapGesture];
+        [self.calendarShowView addGestureRecognizer:self.tapGesture];
     }
     
 }
@@ -184,8 +195,8 @@
 
 - (void)tileViewDidTap:(UITapGestureRecognizer *)tapGesture
 {
-    CGPoint point = [tapGesture locationInView:self];
-    int row = (point.y-_calendarHeadView.frame.size.height) / self.rowHeight;
+    CGPoint point = [tapGesture locationInView:_calendarShowView];
+    int row = point.y / self.rowHeight ;
     int column = point.x / self.columnWidth;
     
     CalendarTileView *selectedTileView = [self tileForRow:row column:column];
@@ -212,6 +223,15 @@
         _calendarHeadView.image = [UIImage imageNamed:@"weeklyTitle"];
     }
     return _calendarHeadView;
+}
+
+-(UIView *)calendarShowView
+{
+    if (_calendarShowView == nil) {
+        self.calendarShowView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, self.calendarHeadView.frame.size.height, self.bounds.size.width, 0.0f)];
+        _calendarShowView.backgroundColor = [UIColor redColor];
+    }
+    return _calendarShowView;
 }
 
 -(NSUInteger)rows

@@ -35,6 +35,8 @@
 @property (nonatomic, assign) id <CalendarDataSource> dataSource;
 @property (nonatomic, assign) id <CalendarDelegate> delegate;
 
+@property (nonatomic, strong) NSDate *selectDate;
+
 -(void)reloadCalendarWithDate:(NSDate *)date;
 -(void)reloadDataWithCurrentDate;
 

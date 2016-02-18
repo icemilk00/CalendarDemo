@@ -27,6 +27,18 @@
     _selected = selected;
 }
 
+-(void)setIsCurrentDay:(BOOL)isCurrentDay
+{
+    _isCurrentDay = isCurrentDay;
+    if (_isCurrentDay) {
+        self.showDayLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        self.showDayLabel.textColor = [UIColor blackColor];
+    }
+}
+
 -(void)configTileViewWithModel:(CalendarModel *)model
 {
     self.showDayLabel.text = [NSString stringWithFormat:@"%d",(int)model.day];

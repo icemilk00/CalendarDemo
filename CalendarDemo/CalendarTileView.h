@@ -12,6 +12,7 @@
 @interface CalendarTileView : UIView
 
 @property (nonatomic, assign) BOOL selected;
+@property (nonatomic, assign) BOOL isCurrentDay;
 
 @property (strong, nonatomic) IBOutlet UILabel *showDayLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *recordFlagImageView;
