@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CalendarViewController.h
 //  CalendarDemo
 //
 //  Created by hp on 16/2/6.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CalendarView.h"
 
-@interface ViewController : UIViewController <CalendarDataSource, CalendarDelegate>
+@interface CalendarViewController : UIViewController <CalendarDataSource, CalendarDelegate>
 
 
 @end

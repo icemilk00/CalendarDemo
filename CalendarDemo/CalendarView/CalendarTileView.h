@@ -13,6 +13,7 @@
 
 @property (nonatomic, assign) BOOL selected;
 @property (nonatomic, assign) BOOL isCurrentDay;
+@property (nonatomic, assign) BOOL isInCurrentMonth;
 
 @property (strong, nonatomic) IBOutlet UILabel *showDayLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *recordFlagImageView;

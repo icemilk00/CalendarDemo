@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) NSInteger selectedRow;
 @property (nonatomic, readwrite) NSInteger selectedColumn;
 @property (nonatomic, strong) CalendarTileView *selectedTileView;
+@property (nonatomic, strong) CalendarModel *selectedCalendarModel;
 @property (nonatomic, strong) CalendarModel *currentDayCalendarModel;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
@@ -44,6 +45,7 @@
         
         NSDateComponents *c = [self.selectDate YMDComponents];
         self.currentDayCalendarModel = [CalendarModel calendarModuleWithYear:c.year month:c.month day:c.day];
+        self.selectedCalendarModel = _currentDayCalendarModel;
         
         [self addSubview:self.calendarHeadView];
         [self addSubview:self.calendarShowView];
@@ -88,9 +90,9 @@
             if (self.dataSourceArray.count > index) {
                 CalendarModel *configModel = self.dataSourceArray[i * 7 + j];
                 [tileView configTileViewWithModel:configModel];
-                
                 tileView.isCurrentDay = [configModel isEqualTo:self.currentDayCalendarModel] ? YES : NO;
-
+                tileView.selected = [configModel isEqualTo:self.selectedCalendarModel] ? YES : NO;
+                tileView.isInCurrentMonth = configModel.month == self.selectedCalendarModel.month;
             }
             
             tileView.frame = CGRectMake(x, y, _columnWidth, _rowHeight);
@@ -116,8 +118,8 @@
 {
     self.selectDate = date;
     
-//    NSDateComponents *c = [date YMDComponents];
-//    self.selectedCalendarDay = [WQCalendarDay calendarDayWithYear:c.year month:c.month day:c.day];
+    NSDateComponents *c = [date YMDComponents];
+    self.selectedCalendarModel = [CalendarModel calendarModuleWithYear:c.year month:c.month day:c.day];
     
     [self.dataSourceArray removeAllObjects];
     
@@ -208,6 +210,16 @@
     
     self.selectedRow = row;
     self.selectedColumn = column;
+    
+    CalendarModel *selectModel = _dataSourceArray[row * 7 + column];
+    BOOL sameMonth = _selectedCalendarModel.month == selectModel.month;
+    
+    self.selectedCalendarModel = selectModel;
+    self.selectDate = [self.selectedCalendarModel date];
+    
+    if (!sameMonth) {
+        [self reloadCalendarWithDate:self.selectDate];
+    }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(calendarView:didSelectAtRow:column:)]) {
         [self.delegate calendarView:self didSelectAtRow:row column:column];

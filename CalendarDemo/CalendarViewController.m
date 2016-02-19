@@ -1,16 +1,16 @@
 //
-//  ViewController.m
+//  CalendarViewController.m
 //  CalendarDemo
 //
 //  Created by hp on 16/2/6.
 //  Copyright © 2016年 hxp. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CalendarViewController.h"
 #import "CalendarTileView.h"
 #import "CalendarModel.h"
 
-@interface ViewController ()
+@interface CalendarViewController ()
 
 @property (nonatomic, strong) CalendarView *calendarView;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ViewController
+@implementation CalendarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

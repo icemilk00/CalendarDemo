@@ -39,6 +39,14 @@
     }
 }
 
+-(void)setIsInCurrentMonth:(BOOL)isInCurrentMonth
+{
+    _isInCurrentMonth = isInCurrentMonth;
+    if (!_isInCurrentMonth) {
+        self.showDayLabel.textColor = [UIColor grayColor];
+    }
+}
+
 -(void)configTileViewWithModel:(CalendarModel *)model
 {
     self.showDayLabel.text = [NSString stringWithFormat:@"%d",(int)model.day];
