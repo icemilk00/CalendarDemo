@@ -10,6 +10,7 @@
 #import "CalendarTileView.h"
 #import "CalendarModel.h"
 
+
 @interface CalendarViewController ()
 
 @property (nonatomic, strong) CalendarView *calendarView;
@@ -71,6 +72,18 @@
     [self setDateShowLabelTextWithDate:nextDate];
 }
 
+-(void)dateChangeTap:(UITapGestureRecognizer *)tap
+{
+    CalendarDatePickerView *pickerView = [[CalendarDatePickerView alloc] initWithDelegate:self];
+    [pickerView show];
+}
+
+-(void)dateChangedWithDate:(NSDate *)date
+{
+    [_calendarView reloadCalendarWithDate:date];
+    [self setDateShowLabelTextWithDate:date];
+}
+
 #pragma setter and getter
 -(CalendarView *)calendarView
 {
@@ -113,6 +126,11 @@
         self.dateShowLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 80.0f, 30.0f, 160.0f, 40.0f)];
         _dateShowLabel.textAlignment = NSTextAlignmentCenter;
         _dateShowLabel.text = @"xx年xx月";
+        
+        _dateShowLabel.userInteractionEnabled = YES;
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dateChangeTap:)];
+        [_dateShowLabel addGestureRecognizer:tap];
     }
     
     return _dateShowLabel;

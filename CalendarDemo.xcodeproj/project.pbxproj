@@ -21,6 +21,7 @@
 		E6FE298F1C76EDC00012850C /* CalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FE29881C76EDC00012850C /* CalendarView.m */; };
 		E6FE29901C76EDC00012850C /* NSDate+CalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FE298A1C76EDC00012850C /* NSDate+CalendarHelper.m */; };
 		E6FE29911C76EDC00012850C /* weeklyTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6FE298B1C76EDC00012850C /* weeklyTitle@2x.png */; };
+		E6FE29941C76F7AA0012850C /* CalendarDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6FE29931C76F7AA0012850C /* CalendarDatePickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		E6FE29891C76EDC00012850C /* NSDate+CalendarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+CalendarHelper.h"; sourceTree = "<group>"; };
 		E6FE298A1C76EDC00012850C /* NSDate+CalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CalendarHelper.m"; sourceTree = "<group>"; };
 		E6FE298B1C76EDC00012850C /* weeklyTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weeklyTitle@2x.png"; sourceTree = "<group>"; };
+		E6FE29921C76F7AA0012850C /* CalendarDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDatePickerView.h; sourceTree = "<group>"; };
+		E6FE29931C76F7AA0012850C /* CalendarDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDatePickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				E6FE29891C76EDC00012850C /* NSDate+CalendarHelper.h */,
 				E6FE298A1C76EDC00012850C /* NSDate+CalendarHelper.m */,
 				E6FE298B1C76EDC00012850C /* weeklyTitle@2x.png */,
+				E6FE29921C76F7AA0012850C /* CalendarDatePickerView.h */,
+				E6FE29931C76F7AA0012850C /* CalendarDatePickerView.m */,
 			);
 			path = CalendarView;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				E6CA39721C6619480021C223 /* CalendarViewController.m in Sources */,
 				E6FE298D1C76EDC00012850C /* CalendarTileView.m in Sources */,
 				E6FE29901C76EDC00012850C /* NSDate+CalendarHelper.m in Sources */,
+				E6FE29941C76F7AA0012850C /* CalendarDatePickerView.m in Sources */,
 				E6FE298C1C76EDC00012850C /* CalendarModel.m in Sources */,
 				E6CA396F1C6619480021C223 /* AppDelegate.m in Sources */,
 				E6CA396C1C6619480021C223 /* main.m in Sources */,

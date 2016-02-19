@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CalendarView.h"
+#import "CalendarDatePickerView.h"
 
-@interface CalendarViewController : UIViewController <CalendarDataSource, CalendarDelegate>
+@interface CalendarViewController : UIViewController <CalendarDataSource, CalendarDelegate, CalendarDatePickerViewDelegate>
 
 
 @end
