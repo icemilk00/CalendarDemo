@@ -98,7 +98,7 @@
 -(UIDatePicker *)datePicker
 {
     if (!_datePicker) {
-        self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, 40.0f, _mainShowView.frame.size.width, _mainShowView.frame.size.height - 40.0f - 40.0f)];
+        self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0.0f, 30.0f, _mainShowView.frame.size.width, _mainShowView.frame.size.height - 40.0f - 40.0f)];
         _datePicker.datePickerMode = UIDatePickerModeDate;
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd"];
