@@ -7,6 +7,7 @@
 //
 
 #import "CalendarTileView.h"
+#import "NSDate+CalendarHelper.h"
 
 
 @implementation CalendarTileView
@@ -19,9 +20,9 @@
     }
     
     if (selected) {
-        self.showDayLabel.backgroundColor = selectedColor;
+        self.backgroundColor = selectedColor;
     } else {
-        self.showDayLabel.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     
     _selected = selected;
@@ -50,6 +51,24 @@
 -(void)configTileViewWithModel:(CalendarModel *)model
 {
     self.showDayLabel.text = [NSString stringWithFormat:@"%d",(int)model.day];
+    self.showChineseDayLabel.text = [model.date chineseCalendar];
+    
+    NSString *holidayStr = [model.date getChineseHoliday];
+    if (holidayStr) {
+        self.showChineseDayLabel.text = holidayStr;
+        self.showChineseDayLabel.textColor = [UIColor redColor];
+        
+        return;
+    }
+    
+    NSString *worldHolidayStr = [model.date getWorldHoliday];
+    if (worldHolidayStr) {
+        self.showChineseDayLabel.text = worldHolidayStr;
+        self.showChineseDayLabel.textColor = [UIColor redColor];
+        
+        return;
+    }
+    
 }
 
 @end

@@ -226,7 +226,6 @@
     }
 }
 
-
 #pragma setter and getter
 -(UIImageView *)calendarHeadView
 {

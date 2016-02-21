@@ -16,6 +16,7 @@
 @property (nonatomic, assign) BOOL isInCurrentMonth;
 
 @property (strong, nonatomic) IBOutlet UILabel *showDayLabel;
+@property (strong, nonatomic) IBOutlet UILabel *showChineseDayLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *recordFlagImageView;
 
 -(void)configTileViewWithModel:(CalendarModel *)model;

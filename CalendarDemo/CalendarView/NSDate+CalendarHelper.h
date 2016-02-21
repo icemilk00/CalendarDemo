@@ -21,4 +21,7 @@
 - (NSDateComponents *)YMDComponents;
 - (NSUInteger)weekNumberInCurrentMonth;
 
+- (NSString *)chineseCalendar;
+-(NSString *)getChineseHoliday;
+-(NSString *)getWorldHoliday;
 @end

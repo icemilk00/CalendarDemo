@@ -35,6 +35,7 @@
     [_calendarView reloadDataWithCurrentDate];
     
     [self setDateShowLabelTextWithDate:[NSDate date]];
+    
 }
 
 -(void)setDateShowLabelTextWithDate:(NSDate *)date
@@ -55,7 +56,7 @@
 
 - (void)calendarView:(CalendarView *)calendarView didSelectAtRow:(NSUInteger)row column:(NSUInteger)column
 {
-    
+    NSLog(@"%@",[calendarView.selectDate chineseCalendar]);
 }
 
 -(void)goPrevMonth:(UIButton *)sender
