@@ -2,7 +2,7 @@
 
 这是一个我自己小项目里需要用的日历轻组件,作为轮子我就放到这里，大概效果可以看下面这张图： 
 
-
+![show image](https://github.com/icemilk00/CalendarDemo/blob/master/show_image.gif)
 
 用法简介
 ===
@@ -44,13 +44,13 @@ PS:效果图上的上一页下一页按钮和title的日期显示控件并没有
 文件介绍
 ===
 
-CalendarView  			//日历本体 
-CalendarTileView		//日历日期单元格,类似于UITableViewCell的角色，定制时请务必继承此类 
-CalendarModel			//描述日期单元格的model 
-NSDate+CalendarHelper	//计算日期和日历关系的NSDate的类别，有需要自行往进加方法
-CalendatDatePickerView	//时间选择器
+CalendarView  			日历本体  
+CalendarTileView		日历日期单元格,类似于UITableViewCell的角色，定制时请务必继承此类  
+CalendarModel			描述日期单元格的model  
+NSDate+CalendarHelper		计算日期和日历关系的NSDate的类别，有需要自行往进加方法 
+CalendatDatePickerView 		时间选择器 
 
-CalendarViewController	//控制器，换成你自己的
+CalendarViewController	//控制器，换成你自己的 
 
 感谢
 ===
