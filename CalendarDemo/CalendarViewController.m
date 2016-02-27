@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UIButton *prevMonthButton;
 @property (nonatomic, strong) UIButton *nextMonthButton;
 @property (nonatomic, strong) UILabel *dateShowLabel;
+@property (nonatomic, strong) UIImageView *chooseFlagImageView;
 
 @end
 
@@ -30,6 +31,7 @@
     [self.view addSubview:self.prevMonthButton];
     [self.view addSubview:self.nextMonthButton];
     [self.view addSubview:self.dateShowLabel];
+    [self.view addSubview:self.chooseFlagImageView];
     
     [self.view addSubview:self.calendarView];
     [_calendarView reloadDataWithCurrentDate];
@@ -57,6 +59,7 @@
 - (void)calendarView:(CalendarView *)calendarView didSelectAtRow:(NSUInteger)row column:(NSUInteger)column
 {
     NSLog(@"%@",[calendarView.selectDate chineseCalendar]);
+    [self setDateShowLabelTextWithDate:calendarView.selectDate];
 }
 
 -(void)goPrevMonth:(UIButton *)sender
@@ -124,7 +127,7 @@
 -(UILabel *)dateShowLabel
 {
     if (_dateShowLabel == nil) {
-        self.dateShowLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 80.0f, 30.0f, 160.0f, 40.0f)];
+        self.dateShowLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2 - 60.0f, 30.0f, 120.0f, 40.0f)];
         _dateShowLabel.textAlignment = NSTextAlignmentCenter;
         _dateShowLabel.text = @"xx年xx月";
         
@@ -135,6 +138,15 @@
     }
     
     return _dateShowLabel;
+}
+
+-(UIImageView *)chooseFlagImageView
+{
+    if (_chooseFlagImageView == nil) {
+        self.chooseFlagImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chooseFlag"]];
+        _chooseFlagImageView.frame = CGRectMake(_dateShowLabel.frame.origin.x + _dateShowLabel.frame.size.width - 5.0f, _dateShowLabel.frame.origin.y + 17.0f, 6.0f, 6.0f);
+    }
+    return _chooseFlagImageView;
 }
 
 - (void)didReceiveMemoryWarning {

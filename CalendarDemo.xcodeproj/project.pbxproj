@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6A20ECC1C81E84F005890FD /* chooseFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6A20ECA1C81E84F005890FD /* chooseFlag@2x.png */; };
+		E6A20ECD1C81E84F005890FD /* chooseFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6A20ECB1C81E84F005890FD /* chooseFlag@3x.png */; };
 		E6CA396C1C6619480021C223 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CA396B1C6619480021C223 /* main.m */; };
 		E6CA396F1C6619480021C223 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CA396E1C6619480021C223 /* AppDelegate.m */; };
 		E6CA39721C6619480021C223 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6CA39711C6619480021C223 /* CalendarViewController.m */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E6A20ECA1C81E84F005890FD /* chooseFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooseFlag@2x.png"; sourceTree = "<group>"; };
+		E6A20ECB1C81E84F005890FD /* chooseFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chooseFlag@3x.png"; sourceTree = "<group>"; };
 		E6CA39671C6619480021C223 /* CalendarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CA396B1C6619480021C223 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E6CA396D1C6619480021C223 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E6A20EC91C81E84F005890FD /* image */ = {
+			isa = PBXGroup;
+			children = (
+				E6A20ECA1C81E84F005890FD /* chooseFlag@2x.png */,
+				E6A20ECB1C81E84F005890FD /* chooseFlag@3x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		E6CA395E1C6619480021C223 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 				E6CA396E1C6619480021C223 /* AppDelegate.m */,
 				E6CA39701C6619480021C223 /* CalendarViewController.h */,
 				E6CA39711C6619480021C223 /* CalendarViewController.m */,
+				E6A20EC91C81E84F005890FD /* image */,
 				E6FE29811C76EDC00012850C /* CalendarView */,
 				E6CA39731C6619480021C223 /* Main.storyboard */,
 				E6CA39761C6619480021C223 /* Assets.xcassets */,
@@ -285,6 +299,8 @@
 				E6FE29911C76EDC00012850C /* weeklyTitle@2x.png in Resources */,
 				E6FE298E1C76EDC00012850C /* CalendarTileView.xib in Resources */,
 				E6CA397A1C6619480021C223 /* LaunchScreen.storyboard in Resources */,
+				E6A20ECD1C81E84F005890FD /* chooseFlag@3x.png in Resources */,
+				E6A20ECC1C81E84F005890FD /* chooseFlag@2x.png in Resources */,
 				E6CA39771C6619480021C223 /* Assets.xcassets in Resources */,
 				E6CA39751C6619480021C223 /* Main.storyboard in Resources */,
 			);

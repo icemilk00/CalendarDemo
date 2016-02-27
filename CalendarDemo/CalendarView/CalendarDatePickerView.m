@@ -9,6 +9,9 @@
 #import "CalendarDatePickerView.h"
 #import "AppDelegate.h"
 
+#define CURRENT_IOS_VERISON [[[UIDevice currentDevice] systemVersion] floatValue]   //当前版本号
+#define PICKER_HEIGHT  (CURRENT_IOS_VERISON >= 9 ? 200.0f : 296.0f)
+
 @interface CalendarDatePickerView ()
 
 @property (nonatomic, strong) UIView *bgShowView;
@@ -67,7 +70,7 @@
 
 -(void)bgTap:(UITapGestureRecognizer *)tap
 {
-    
+    [self cancel];
 }
 
 #pragma mark - getter and setter
@@ -87,7 +90,7 @@
 -(UIView *)mainShowView
 {
     if (!_mainShowView) {
-        self.mainShowView = [[UIView alloc] initWithFrame:CGRectMake(20.0f, self.frame.size.height/2 - 200/2, self.frame.size.width - 40.0f , 200.0f)];
+        self.mainShowView = [[UIView alloc] initWithFrame:CGRectMake(20.0f, self.frame.size.height/2 - PICKER_HEIGHT/2, self.frame.size.width - 40.0f , PICKER_HEIGHT)];
         
         _mainShowView.backgroundColor = [UIColor whiteColor];
     }
